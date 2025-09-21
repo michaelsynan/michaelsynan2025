@@ -12,9 +12,9 @@ const selectedTab = ref('Design');
         </h1>
       </div>
     </div>
-    <div class="flex flex-row w-full h-1/2 max-h-1/2 gap-20">
-      <div class="flex-1 flex items-end">
-        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" height="600" class="object-cover" />
+    <div class="flex flex-row w-full h-[600px] gap-20">
+      <div class="flex-1 flex h-full overflow-hidden">
+        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover h-full w-full" />
       </div>
       <div class="flex-[3] flex flex-col w-full">
         <div id="home-content-wrapper"
@@ -26,25 +26,52 @@ const selectedTab = ref('Design');
           </div>
         </div>
         <div class="flex flex-row gap-20">
-          <div class="flex-1 flex border-t pt-4 cursor-pointer justify-center"
+          <div class="flex-1 flex border-t pt-4 cursor-pointer"
             :class="selectedTab === 'Design' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
             @click="selectedTab = 'Design'">
-            <div class="w-full text-left flex items-center gap-2">
-              <span class="font-mono">01.</span> Design
+            <div class="w-full flex items-center gap-2 justify-between">
+              <div class="flex items-center gap-2 text-left">
+                <span class="font-mono">01.</span> Design
+              </div>
+              <template v-if="selectedTab === 'Design'">
+                <NuxtLink to="/design"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
+                  See more
+                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                </NuxtLink>
+              </template>
             </div>
           </div>
-          <div class="flex-1 flex border-t pt-4 cursor-pointer justify-center"
+          <div class="flex-1 flex border-t pt-4 cursor-pointer"
             :class="selectedTab === 'Development' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
             @click="selectedTab = 'Development'">
-            <div class="w-full text-left flex items-center gap-2">
-              <span class="font-mono">02.</span> Development
+            <div class="w-full flex items-center gap-2 justify-between">
+              <div class="flex items-center gap-2 text-left">
+                <span class="font-mono">02.</span> Development
+              </div>
+              <template v-if="selectedTab === 'Development'">
+                <NuxtLink to="/development"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
+                  See more
+                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                </NuxtLink>
+              </template>
             </div>
           </div>
-          <div class="flex-1 flex border-t pt-4 cursor-pointer justify-center"
+          <div class="flex-1 flex border-t pt-4 cursor-pointer"
             :class="selectedTab === 'Writing' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
             @click="selectedTab = 'Writing'">
-            <div class="w-full text-left flex items-center gap-2">
-              <span class="font-mono">03.</span> Writing
+            <div class="w-full flex items-center gap-2 justify-between">
+              <div class="flex items-center gap-2 text-left">
+                <span class="font-mono">03.</span> Writing
+              </div>
+              <template v-if="selectedTab === 'Writing'">
+                <NuxtLink to="/writing"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
+                  See more
+                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                </NuxtLink>
+              </template>
             </div>
           </div>
         </div>
