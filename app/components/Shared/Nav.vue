@@ -34,6 +34,8 @@ const showMenu = ref(false);
             transform: showMenu ? 'translate(calc(-100% - 16px), -50%) scaleX(1)' : 'translate(calc(-100% - 16px), -50%) scaleX(0)',
             transformOrigin: 'right',
           }">
+          <NuxtLink to="/" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">Home
+          </NuxtLink>
           <NuxtLink to="/about" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">About
           </NuxtLink>
           <NuxtLink to="/posts" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">
