@@ -1,6 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
+import HomeDesign from '../Home/Design.vue';
+import HomeDevelopment from '../Home/Development.vue';
+import HomeWriting from '../Home/Writing.vue';
 const selectedTab = ref('Design');
+const selectedTabComponent = computed(() => {
+  if (selectedTab.value === 'Design') return HomeDesign;
+  if (selectedTab.value === 'Development') return HomeDevelopment;
+  if (selectedTab.value === 'Writing') return HomeWriting;
+  return null;
+});
 </script>
 
 <template>
@@ -18,12 +27,10 @@ const selectedTab = ref('Design');
       </div>
       <div class="flex-[3] flex flex-col w-full">
         <div id="home-content-wrapper"
-          class="h-full flex items-center justify-center border-t border-neutral-300 pt-2 overflow-hidden">
-          <div id="home-content" class="w-full text-center">
-            <HomeDesign v-if="selectedTab === 'Design'" />
-            <HomeDevelopment v-else-if="selectedTab === 'Development'" />
-            <HomeWriting v-else-if="selectedTab === 'Writing'" />
-          </div>
+          class="h-full flex items-start justify-center border-t border-neutral-300 pt-2 overflow-hidden">
+          <Transition name="fade-tab" mode="out-in">
+            <component :is="selectedTabComponent" />
+          </Transition>
         </div>
         <div class="flex flex-row gap-20">
           <div class="flex-1 flex border-t pt-4 cursor-pointer"
@@ -34,9 +41,9 @@ const selectedTab = ref('Design');
                 <span class="font-mono">01.</span> Design
               </div>
               <template v-if="selectedTab === 'Design'">
-                <NuxtLink to="/design"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
-                  See more
+                <NuxtLink to="/projects"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                  View Projects
                   <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
                 </NuxtLink>
               </template>
@@ -50,9 +57,9 @@ const selectedTab = ref('Design');
                 <span class="font-mono">02.</span> Development
               </div>
               <template v-if="selectedTab === 'Development'">
-                <NuxtLink to="/development"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
-                  See more
+                <NuxtLink to="/projects"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                  View Projects
                   <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
                 </NuxtLink>
               </template>
@@ -66,9 +73,9 @@ const selectedTab = ref('Design');
                 <span class="font-mono">03.</span> Writing
               </div>
               <template v-if="selectedTab === 'Writing'">
-                <NuxtLink to="/writing"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 px-2 py-1 rounded transition-colors duration-150">
-                  See more
+                <NuxtLink to="/posts"
+                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                  View Writing
                   <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
                 </NuxtLink>
               </template>
@@ -80,4 +87,19 @@ const selectedTab = ref('Design');
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fade-tab-enter-active,
+.fade-tab-leave-active {
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-tab-enter-from,
+.fade-tab-leave-to {
+  opacity: 0;
+}
+
+.fade-tab-enter-to,
+.fade-tab-leave-from {
+  opacity: 1;
+}
+</style>

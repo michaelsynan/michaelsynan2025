@@ -1,6 +1,27 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-h1 {
+h1,
+h2 {
   font-family: "EB Garamond", Garamond, serif;
+}
+
+h2 {
+  font-size: 1.75rem;
+  font: normal;
+}
+body {
+  font-family: "Inter", Arial, Helvetica, sans-serif; /* body text */
+}
+
+.mono {
+  font-family: "Inter" !important;
+}
+
+@layer utilities {
+  .font-mono {
+    font-family:
+      "JetBrains Mono", "Fira Mono", "IBM Plex Mono", Menlo, Monaco, Consolas,
+      "Liberation Mono", "Courier New", monospace !important;
+  }
 }
