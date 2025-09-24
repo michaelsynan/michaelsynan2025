@@ -1,6 +1,25 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useRouter } from 'vue-router';
 const showMenu = ref(false);
+const menuRef = ref(null);
+const router = useRouter();
+
+function handleClickOutside(event) {
+  if (showMenu.value && menuRef.value && !menuRef.value.contains(event.target)) {
+    showMenu.value = false;
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('mousedown', handleClickOutside);
+  router.afterEach(() => {
+    showMenu.value = false;
+  });
+});
+onBeforeUnmount(() => {
+  document.removeEventListener('mousedown', handleClickOutside);
+});
 </script>
 
 <template>
@@ -25,28 +44,37 @@ const showMenu = ref(false);
         </svg>
       </UButton>
       <Transition name="slide-menu">
-        <div v-if="showMenu"
-          class="absolute left-0 flex flex-row bg-[#fdfaea] border border-neutral-900 z-50 gap-10 transition-all duration-300"
-          :style="{
-            height: '40px',
-            minWidth: '400px',
-            top: '50%',
-            transform: showMenu ? 'translate(calc(-100% - 16px), -50%) scaleX(1)' : 'translate(calc(-100% - 16px), -50%) scaleX(0)',
-            transformOrigin: 'right',
-          }">
+        <div v-if="showMenu" ref="menuRef"
+          class="absolute left-0 flex flex-row bg-[#fdfaea] border border-neutral-900 z-50 gap-10 transition-all duration-300 slide-menu-content hidden md:flex"
+          style="height: 40px; min-width: 400px; top: 50%; transform: translate(calc(-100% - 16px), -50%) scaleX(1); transform-origin: right;">
           <NuxtLink to="/" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">Home
           </NuxtLink>
           <NuxtLink to="/about" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">About
           </NuxtLink>
           <NuxtLink to="/posts" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">
-            Writing
-          </NuxtLink>
+            Writing</NuxtLink>
           <NuxtLink to="/projects" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">
-            Projects
-          </NuxtLink>
+            Projects</NuxtLink>
           <NuxtLink to="/contact" class="flex items-center h-full px-4 hover:bg-white transition text-sm font-mono">
-            Contact
+            Contact</NuxtLink>
+        </div>
+      </Transition>
+      <!-- Mobile menu -->
+      <Transition name="slide-menu">
+        <div v-if="showMenu"
+          class="fixed left-0 mx-4 right-0 top-[62px] w-auto  h-auto flex flex-col bg-[#fdfaea] border border-neutral-900 z-50 gap-0 md:hidden slide-menu-mobile transition-all duration-300"
+          style="border-radius: 0;">
+
+          <NuxtLink to="/" class="flex items-center h-14 px-4 hover:bg-white transition text-base font-mono">Home
           </NuxtLink>
+          <NuxtLink to="/about" class="flex items-center h-14 px-4 hover:bg-white transition text-base font-mono">About
+          </NuxtLink>
+          <NuxtLink to="/posts" class="flex items-center h-14 px-4 hover:bg-white transition text-base font-mono">
+            Writing</NuxtLink>
+          <NuxtLink to="/projects" class="flex items-center h-14 px-4 hover:bg-white transition text-base font-mono">
+            Projects</NuxtLink>
+          <NuxtLink to="/contact" class="flex items-center h-14 px-4 hover:bg-white transition text-base font-mono">
+            Contact</NuxtLink>
         </div>
       </Transition>
     </div>

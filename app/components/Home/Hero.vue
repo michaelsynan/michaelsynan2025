@@ -17,7 +17,7 @@ const selectedTabComponent = computed(() => {
     <div class="grid grid-cols-2 w-full flex-1 min-h-1/2">
       <div />
       <div class="flex flex-col justify-center h-full">
-        <h1 class="text-5xl mx-auto max-w-md leading-tight text-left">Building Nice Things for Human Beings.
+        <h1 class="text-3xl md:text-5xl mx-auto max-w-md leading-tight text-left">Building Nice Things for Human Beings.
         </h1>
       </div>
     </div>
@@ -27,7 +27,7 @@ const selectedTabComponent = computed(() => {
       </div>
       <div class="flex-[3] flex flex-col w-full">
         <div id="home-content-wrapper"
-          class="h-full flex items-start justify-center border-t border-neutral-300 pt nuxt page transitions (adding to #file:app.vue  and #file:nuxt.config.ts ) make tranisitions between pages py-2 overflow-hidden">
+          class="h-full flex items-start justify-center border-t border-neutral-300 pt py-2 overflow-hidden">
           <Transition name="fade-tab" mode="out-in">
             <component :is="selectedTabComponent" />
           </Transition>

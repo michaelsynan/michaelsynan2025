@@ -17,7 +17,8 @@ const selectedTabComponent = computed(() => {
     <div class="grid grid-cols-2 w-full flex-1 min-h-1/2">
       <div />
       <div class="flex flex-col justify-center h-full">
-        <h1 class="text-5xl mx-auto max-w-md leading-tight text-left">Hi, I'm Michael Synan. Pleased to meet you.
+        <h1 class="text-3xl md:text-5xl mx-auto max-w-md leading-tight text-left">Hi, I'm Michael Synan. Pleased to meet
+          you.
         </h1>
       </div>
     </div>
@@ -37,59 +38,17 @@ const selectedTabComponent = computed(() => {
             degree in Psychology inform my approach to understanding the human side of technology.
           </p>
           <p>
-            I'm the founder of <nuxt-link to="https://formworkstudios.com">Formwork Studios</nuxt-link>.
+            I'm the founder of <nuxt-link to="https://formworkstudios.com" target="_blank"
+              class="underline-thick">Formwork
+              Studios</nuxt-link>.
           </p>
+          <div class="w-full h-full" />
+          <div class="w-full">
+          </div>
         </div>
-        <!-- <div class="flex flex-row gap-20">
-          <div class="flex-1 flex border-t pt-4 cursor-pointer"
-            :class="selectedTab === 'Design' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-            @click="selectedTab = 'Design'">
-            <div class="w-full flex items-center gap-2 justify-between">
-              <div class="flex items-center gap-2 text-left">
-                <span class="font-mono">01.</span> Design
-              </div>
-              <template v-if="selectedTab === 'Design'">
-                <NuxtLink to="/projects"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
-                  View Projects
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
-                </NuxtLink>
-              </template>
-</div>
-</div>
-<div class="flex-1 flex border-t pt-4 cursor-pointer"
-  :class="selectedTab === 'Development' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-  @click="selectedTab = 'Development'">
-  <div class="w-full flex items-center gap-2 justify-between">
-    <div class="flex items-center gap-2 text-left">
-      <span class="font-mono">02.</span> Development
-    </div>
-    <template v-if="selectedTab === 'Development'">
-                <NuxtLink to="/projects"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
-                  View Projects
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
-                </NuxtLink>
-              </template>
-  </div>
-</div>
-<div class="flex-1 flex border-t pt-4 cursor-pointer"
-  :class="selectedTab === 'Writing' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-  @click="selectedTab = 'Writing'">
-  <div class="w-full flex items-center gap-2 justify-between">
-    <div class="flex items-center gap-2 text-left">
-      <span class="font-mono">03.</span> Writing
-    </div>
-    <template v-if="selectedTab === 'Writing'">
-                <NuxtLink to="/posts"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
-                  View Writing
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
-                </NuxtLink>
-              </template>
-  </div>
-</div>
-</div> -->
+        <SharedSocials class="ml-auto" />
+
+
       </div>
     </div>
   </div>

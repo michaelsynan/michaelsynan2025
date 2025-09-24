@@ -31,7 +31,7 @@ const selectedTab = ref('A');
           :class="selectedTab === 'D' ? 'text-neutral-900' : 'text-neutral-700'" @click="selectedTab = 'D'">
           <span class="font-mono mr-1">D.</span>
           <span class="ml-1 flex-1 cursor-pointer">GitHub</span>
-          <UIcon name="i-mdi-arrow-top-right-thick" class="inline-block ml-1.5 w-4 h-4 mb-0.5" />
+          <UIcon name="i-mdi-arrow-top-right" class="inline-block ml-1.5 w-4 h-4" />
         </button>
       </nav>
     </div>
@@ -39,7 +39,7 @@ const selectedTab = ref('A');
       <Transition name="fade-content" mode="out-in">
         <div :key="selectedTab" class="w-full text-left">
           <div v-if="selectedTab === 'A'">
-            <h2 class="text-xl font-semibold mb-2">Vue & Nuxt</h2>
+            <h2 class="text-xl mb-2">Vue & Nuxt</h2>
             <p class="text-neutral-500 max-w-2xl">
               I primarily build modern web applications using Vue and Nuxt, leveraging Nuxt Content and Nuxt UI while
               following SPA and SSR best practices. Projects are typically deployed on Vercel and Cloudflare, though I’m
@@ -48,12 +48,13 @@ const selectedTab = ref('A');
             </p>
           </div>
           <div v-else-if="selectedTab === 'B'">
-            <h2 class="text-xl font-semibold mb-2">Shopify</h2>
+            <h2 class="text-xl mb-2">Shopify</h2>
             <p class="text-neutral-500 max-w-2xl">Shopify development for e-commerce solutions and custom storefronts.
             </p>
           </div>
           <div v-else-if="selectedTab === 'C'">
-            <h2 class="text-xl font-semibold mb-2">WordPress</h2>
+            <h2 class="text-xl 
+            mb-2">WordPress</h2>
             <p class="text-neutral-500 max-w-2xl">WordPress sites, themes, and plugin development for flexible content
               management.</p>
           </div>

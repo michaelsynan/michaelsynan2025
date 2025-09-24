@@ -25,3 +25,20 @@ body {
       "Liberation Mono", "Courier New", monospace !important;
   }
 }
+
+/* Custom underline utility: thick, offset, and does not cross descenders */
+.underline-thick {
+  position: relative;
+}
+.underline-thick::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0em; /* offset so it doesn't cross descenders */
+  width: 100%;
+  height: 0.18em; /* thickness */
+  background: none;
+  border-bottom: 0.15em dotted currentColor;
+  pointer-events: none;
+  z-index: 0;
+}

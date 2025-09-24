@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full py-6 px-4 text-center text-neutral-600 bg-[#fdfaea] border-t border-neutral-200">
+  <footer class="w-full py-6 px-4 text-center text-neutral-600 bg-[#fdfaea] border-t border-neutral-200 text-xs">
     <span>&copy; 2025 Michael Synan. All rights reserved.</span>
   </footer>
 </template>

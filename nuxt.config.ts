@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
 
+  app: {
+    pageTransition: { name: "fade", mode: "out-in" },
+  },
+
   modules: [
     "@nuxt/content",
     "@nuxt/eslint",
