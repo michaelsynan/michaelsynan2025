@@ -35,16 +35,11 @@ onBeforeUnmount(() => {
       </NuxtLink>
     </div>
     <div ref="menuRef" class="flex items-center relative">
-      <UButton
-        color="neutral"
-        variant="ghost"
-        class="cursor-pointer"
-        style="position: relative; z-index: 100001;"
+      <UButton color="neutral" variant="ghost" class="cursor-pointer" style="position: relative; z-index: 100001;"
         :class="['flex items-center justify-center p-0 w-10 h-10 border border-neutral-900 rounded-none', showMenu ? 'bg-[#fdfaea]' : 'bg-[#fdfaea]']"
         @click="showMenu = !showMenu"
         @mouseover="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.backgroundColor = 'white'"
-        @mouseleave="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.backgroundColor = '#fdfaea'"
-      >
+        @mouseleave="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.backgroundColor = '#fdfaea'">
         <svg v-if="!showMenu" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect x="11" y="4" width="2" height="16" rx="1" fill="currentColor" />
           <rect x="4" y="11" width="16" height="2" rx="1" fill="currentColor" />
@@ -77,8 +72,7 @@ onBeforeUnmount(() => {
       <!-- Mobile full-screen overlay menu (teleported to body so nav stays on top) -->
       <teleport to="body">
         <Transition name="slide-menu">
-          <div
-            v-if="showMenu"
+          <div v-if="showMenu"
             class="fixed inset-0 bg-[#fdfaea] md:hidden transition-all duration-300 slide-menu-mobile flex"
             style="border-radius: 0; pointer-events: auto; z-index: 10000;">
 
@@ -87,47 +81,31 @@ onBeforeUnmount(() => {
               <nav class="w-full max-w-md px-6">
                 <ul class="flex flex-col gap-6 items-start">
                   <li>
-                    <NuxtLink
-                      to="/"
-                      class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                      @click="showMenu = false"
-                    >
+                    <NuxtLink to="/" class="text-2xl font-mono px-2 py-2 pointer-events-auto" @click="showMenu = false">
                       Home
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink
-                      to="/about"
-                      class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                      @click="showMenu = false"
-                    >
+                    <NuxtLink to="/about" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
+                      @click="showMenu = false">
                       About
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink
-                      to="/posts"
-                      class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                      @click="showMenu = false"
-                    >
+                    <NuxtLink to="/posts" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
+                      @click="showMenu = false">
                       Writing
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink
-                      to="/projects"
-                      class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                      @click="showMenu = false"
-                    >
+                    <NuxtLink to="/projects" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
+                      @click="showMenu = false">
                       Projects
                     </NuxtLink>
                   </li>
                   <li>
-                    <NuxtLink
-                      to="/contact"
-                      class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                      @click="showMenu = false"
-                    >
+                    <NuxtLink to="/contact" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
+                      @click="showMenu = false">
                       Contact
                     </NuxtLink>
                   </li>

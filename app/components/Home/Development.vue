@@ -4,7 +4,7 @@ const selectedTab = ref('A');
 </script>
 
 <template>
-  <div class="flex flex-row w-full h-[500px]">
+  <div class="flex flex-row w-full h-full">
     <div class="flex flex-col items-start justify-between py-8 pr-8 border-r border-neutral-200 h-full max-w-max">
       <!-- side menu area -->
       <nav class="flex flex-col gap-6 w-full items-start text-left">

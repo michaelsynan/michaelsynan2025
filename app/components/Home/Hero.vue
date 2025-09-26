@@ -13,10 +13,13 @@ const selectedTabComponent = computed(() => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-between items-start min-h-screen p-4 gap-8 md:gap-0">
-    <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-1/2">
+  <div class="flex flex-col justify-between items-start min-h-screen p-0 md:p-4 gap-8 md:gap-0 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-screen md:min-h-1/2 p-4 md:p-0">
       <div class="hidden md:block" />
-      <div class="flex flex-col justify-end md:justify-center h-full pt-20 md:pt-0  mr-auto md:mr-[unset]">
+      <div class="flex flex-col justify-end md:justify-center h-full pt-0  mr-auto md:mr-[unset]">
+        <div class="flex md:hidden h-full">
+          <div id="some-stuff-content">Some stuff</div>
+        </div>
         <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4" />
         <h1 class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col">
           <span>Building Nice
