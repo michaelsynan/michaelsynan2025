@@ -23,6 +23,11 @@ const selectedTabComponent = computed(() => {
             Things</span><span>for Human
             Beings.</span>
         </h1>
+        <div class="flex md:hidden pt-4 flex-row text-sm gap-2 max-h-content w-full justify-between">
+          <div>DESIGN</div>
+          <div>DEVELOPMENT</div>
+          <div>WRITING</div>
+        </div>
       </div>
     </div>
     <div class="flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-8 md:gap-10">
