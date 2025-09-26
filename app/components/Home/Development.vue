@@ -49,14 +49,18 @@ const selectedTab = ref('A');
           </div>
           <div v-else-if="selectedTab === 'B'">
             <h2 class="text-xl mb-2">Shopify</h2>
-            <p class="text-neutral-500 max-w-2xl">Shopify development for e-commerce solutions and custom storefronts.
+            <p class="text-neutral-500 max-w-2xl">Shopify is the most widely used eCommerce platform for small
+              businesses and brands, with the highest-converting checkout on the internet. I set up your Shopify store,
+              email flows, abandoned cart recovery, custom theme development, deals, bundling, and CRM integration.
+              Shopify development for eCommerce solutions and custom storefronts.
+
             </p>
           </div>
           <div v-else-if="selectedTab === 'C'">
             <h2 class="text-xl 
             mb-2">WordPress</h2>
-            <p class="text-neutral-500 max-w-2xl">WordPress sites, themes, and plugin development for flexible content
-              management.</p>
+            <p class="text-neutral-500 max-w-2xl">I've been buidling and hosting WordPress sites for 15 years. From
+              custom theme and plugin development to automation and marketing.</p>
           </div>
           <div v-else-if="selectedTab === 'D'">
             <h2 class="text-xl font-semibold mb-2">GitHub</h2>

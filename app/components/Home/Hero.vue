@@ -16,18 +16,23 @@ const selectedTabComponent = computed(() => {
   <div class="flex flex-col justify-between items-start min-h-screen p-4 gap-8 md:gap-0">
     <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-1/2">
       <div class="hidden md:block" />
-      <div class="flex flex-col justify-start md:justify-center h-full pt-20 md:pt-0  mr-auto md:mr-[unset]">
-        <h1 class="text-3xl md:text-5xl mx-auto max-w-md leading-tight text-left flex flex-col"><span>Building Nice
+      <div class="flex flex-col justify-end md:justify-center h-full pt-20 md:pt-0  mr-auto md:mr-[unset]">
+        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4" />
+        <h1 class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col">
+          <span>Building Nice
             Things</span><span>for Human
             Beings.</span>
         </h1>
       </div>
     </div>
     <div class="flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-8 md:gap-10">
-      <div class="flex-1 flex h-full overflow-hidden">
+      <!-- home image -->
+      <div class="flex-1 hidden md:flex h-full overflow-hidden">
         <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover h-full w-full" />
       </div>
-      <div class="flex-[3] flex flex-col w-full">
+      <!-- right side -->
+      <!-- right side desktop -->
+      <div class="flex-[3] hidden md:flex flex-col w-full">
         <div id="home-content-wrapper"
           class="h-full flex items-start justify-center border-t border-neutral-300 pt py-2 overflow-hidden">
           <Transition name="fade-tab" mode="out-in">
@@ -84,6 +89,11 @@ const selectedTabComponent = computed(() => {
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- right side mobile -->
+      <div class="flex-[3] flex flex-col md:hidden w-full">
+        <div></div>
       </div>
     </div>
   </div>

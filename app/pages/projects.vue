@@ -25,7 +25,7 @@ const projects = [
     title: 'Shan Shan Peer Coaching',
     description: 'Coaching and mentorship platform.',
     tags: ['Coaching', 'Mentorship'],
-    link: 'https://shanshanpeercoaching.com',
+    link: 'https://www.shanshansongpeercoaching.com/',
     image: '/shan.webp',
   },
 ];

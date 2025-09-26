@@ -8,6 +8,12 @@
                     class="underline hover:text-neutral-800">your@email.com</a> or on GitHub at <a
                     href="https://github.com/michaelsynan" target="_blank"
                     class="underline hover:text-neutral-800">michaelsynan</a>.</p>
+            <div class="flex flex-row gap-4 w-full justify-start pt-4">
+                <UIcon name="i-mdi-github" class="w-6 h-6" />
+                <UIcon name="i-mdi-linkedin" class="w-6 h-6" />
+                <UIcon name="i-mdi-mastodon" class="w-6 h-6" />
+            </div>
+
         </div>
     </UContainer>
 </template>
