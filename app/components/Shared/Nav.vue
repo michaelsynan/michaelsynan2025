@@ -36,7 +36,7 @@ onBeforeUnmount(() => {
     </div>
     <div ref="menuRef" class="flex items-center relative">
       <UButton color="neutral" variant="ghost" class="cursor-pointer" style="position: relative; z-index: 100001;"
-        :class="['flex items-center justify-center p-0 w-10 h-10 border border-neutral-900 rounded-none', showMenu ? 'bg-[#fdfaea]' : 'bg-[#fdfaea]']"
+        :class="['flex items-center justify-center p-0 w-10 h-10 border border-neutral-900 rounded-none', showMenu ? 'bg-[#fdfaea] dark:bg-transparent' : 'bg-[#fdfaea] dark:bg-transparent']"
         @click="showMenu = !showMenu"
         @mouseover="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.backgroundColor = 'white'"
         @mouseleave="(e: MouseEvent) => (e.currentTarget as HTMLElement).style.backgroundColor = '#fdfaea'">

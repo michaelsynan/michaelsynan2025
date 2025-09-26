@@ -7,7 +7,7 @@ const { data: page } = await useAsyncData(route.path, () => {
 
 <template>
     <div class="pt-32 px-4 w-full max-w-2xl mx-auto min-h-screen">
-        <h1 class="text-3xl font-semibold mb-8 text-left">{{ page?.title }}</h1>
+        <h1 class="text-3xl font-semibold mb-8 text-left">{{ page?.title }} hi</h1>
         <div class="prose prose-neutral text-left max-w-none mb-12">
             <ContentRenderer v-if="page" :value="page" />
         </div>

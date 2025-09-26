@@ -15,4 +15,9 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
   ],
   css: ["@/assets/css/main.css"],
+  ui: {
+    theme: {
+      colors: ["primary", "secondary", "cream"],
+    },
+  },
 });

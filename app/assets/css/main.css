@@ -1,5 +1,36 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
+@theme static {
+  --color-cream-50: #fffbea;
+  --color-cream-100: #fef8d8;
+  --color-cream-200: #fdf3c5;
+  --color-cream-300: #fcf0b2;
+  --color-cream-400: #fafca0;
+  --color-cream-500: #f7f78e;
+  --color-cream-600: #e6e384;
+  --color-cream-700: #c5c27a;
+  --color-cream-800: #a39f70;
+  --color-cream-900: #827c66;
+  --color-cream-950: #3b352f;
+}
+
+/* Light mode */
+:root {
+  --ui-bg: var(--ui-color-cream-100);
+  --ui-bg-muted: var(--ui-color-cream-50);
+  --ui-bg-elevated: var(--ui-color-cream-200);
+  --ui-bg-accented: var(--ui-color-cream-300);
+  --ui-bg-inverted: var(--ui-color-neutral-900);
+}
+
+/* Dark mode */
+.dark {
+  --ui-bg: var(--ui-color-cream-900);
+  --ui-bg-muted: var(--ui-color-cream-800);
+  --ui-bg-elevated: var(--ui-color-cream-700);
+  --ui-bg-accented: var(--ui-color-cream-600);
+  --ui-bg-inverted: var(--color-white);
+}
 
 h1,
 h2 {
@@ -11,7 +42,7 @@ h2 {
   font: normal;
 }
 body {
-  font-family: "Inter", Arial, Helvetica, sans-serif; /* body text */
+  font-family: "Inter", Arial, Helvetica, sans-serif;
 }
 
 .mono {
@@ -26,7 +57,6 @@ body {
   }
 }
 
-/* Custom underline utility: thick, offset, and does not cross descenders */
 .underline-thick {
   position: relative;
 }
@@ -34,9 +64,9 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  bottom: 0em; /* offset so it doesn't cross descenders */
+  bottom: 0em;
   width: 100%;
-  height: 0.18em; /* thickness */
+  height: 0.18em;
   background: none;
   border-bottom: 0.15em dotted currentColor;
   pointer-events: none;
