@@ -13,11 +13,12 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxt/ui",
     "@nuxt/fonts",
+    "@nuxtjs/seo",
   ],
   css: ["@/assets/css/main.css"],
   ui: {
     theme: {
-      colors: ["primary", "secondary", "cream"],
+      colors: ["primary", "secondary", "cream", "darkcream"],
     },
   },
 });

@@ -10,6 +10,18 @@ const selectedTabComponent = computed(() => {
   if (selectedTab.value === 'Writing') return HomeWriting;
   return null;
 });
+
+// mobile-specific refs (avoid name collisions)
+const mobileDesign = ref(null);
+const mobileDevelopment = ref(null);
+const mobileWriting = ref(null);
+
+const mobileStuff = computed(() => {
+  if (selectedTab.value === 'Design') return 'Design — I craft interfaces and visual systems.';
+  if (selectedTab.value === 'Development') return 'Development — I build web apps and tools.';
+  if (selectedTab.value === 'Writing') return 'Writing — I publish essays and technical notes.';
+  return 'Some stuff';
+});
 </script>
 
 <template>
@@ -17,8 +29,29 @@ const selectedTabComponent = computed(() => {
     <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-screen md:min-h-1/2 p-4 md:p-0">
       <div class="hidden md:block" />
       <div class="flex flex-col justify-end md:justify-center h-full pt-0  mr-auto md:mr-[unset]">
-        <div class="flex md:hidden h-full">
-          <div id="some-stuff-content">Some stuff</div>
+        <div class="flex md:hidden h-full items-start justify-start">
+          <div id="some-stuff-content" class="pt-40 w-full max-w-lg ml-0">
+            <div v-for="tab in ['Design', 'Development', 'Writing']" :key="tab" class="border-b border-neutral-200">
+
+              <div class="w-full">
+                <button class="w-full flex items-center gap-3 py-3 px-2 text-left focus:outline-none"
+                  :class="selectedTab === tab ? 'bg-cream-50' : 'bg-transparent'" @click="selectedTab = tab"
+                  style="position:relative;z-index:1;">
+                  <span class="font-mono text-xs text-neutral-500 w-8">{{ tab === 'Design' ? '01' : tab ===
+                    'Development' ? '02' : '03' }}.</span>
+                  <span class="flex-1 text-base font-medium text-neutral-800">{{ tab }}</span>
+                  <span class="flex items-center text-xs text-neutral-500">
+                    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </button>
+                <div v-if="selectedTab === tab" class="px-2 pb-3 text-sm text-neutral-700 py-4">
+                  {{ mobileStuff }}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4" />
         <h1 class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col">
@@ -26,11 +59,7 @@ const selectedTabComponent = computed(() => {
             Things</span><span>for Human
             Beings.</span>
         </h1>
-        <div class="flex md:hidden pt-4 flex-row text-sm gap-2 max-h-content w-full justify-between">
-          <div>DESIGN</div>
-          <div>DEVELOPMENT</div>
-          <div>WRITING</div>
-        </div>
+
       </div>
     </div>
     <div class="flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-8 md:gap-10">

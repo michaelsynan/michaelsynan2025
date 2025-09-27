@@ -12,6 +12,18 @@
   --color-cream-800: #a39f70;
   --color-cream-900: #827c66;
   --color-cream-950: #3b352f;
+
+  --color-darkcream-50: #f7f5e6;
+  --color-darkcream-100: #f1eed0;
+  --color-darkcream-200: #e8e3b7;
+  --color-darkcream-300: #ded99f;
+  --color-darkcream-400: #d3ce87;
+  --color-darkcream-500: #c9c36f;
+  --color-darkcream-600: #b0aa5c;
+  --color-darkcream-700: #8d8450;
+  --color-darkcream-800: #635b42;
+  --color-darkcream-900: #3b352f;
+  --color-darkcream-950: #12100c;
 }
 
 /* Light mode */
@@ -25,10 +37,10 @@
 
 /* Dark mode */
 .dark {
-  --ui-bg: var(--ui-color-cream-900);
-  --ui-bg-muted: var(--ui-color-cream-800);
-  --ui-bg-elevated: var(--ui-color-cream-700);
-  --ui-bg-accented: var(--ui-color-cream-600);
+  --ui-bg: var(--ui-color-darkcream-950);
+  --ui-bg-muted: var(--ui-color-darkcream-800);
+  --ui-bg-elevated: var(--ui-color-darkcream-700);
+  --ui-bg-accented: var(--ui-color-darkcream-600);
   --ui-bg-inverted: var(--color-white);
 }
 
