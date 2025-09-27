@@ -66,36 +66,39 @@ onBeforeUnmount(() => {
           <nav class="w-full max-w-md px-6">
             <ul class="flex flex-col gap-6 items-start">
               <li>
-                <NuxtLink to="/" class="text-2xl font-mono px-2 py-2 pointer-events-auto" @click="showMenu = false">
+                <NuxtLink to="/" class="text-2xl px-2 py-2 pointer-events-auto" @click="showMenu = false">
                   Home
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/about" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                  @click="showMenu = false">
+                <NuxtLink to="/about" class="text-2xl px-2 py-2 pointer-events-auto" @click="showMenu = false">
                   About
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/posts" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                  @click="showMenu = false">
+                <NuxtLink to="/posts" class="text-2xl px-2 py-2 pointer-events-auto" @click="showMenu = false">
                   Writing
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/projects" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                  @click="showMenu = false">
+                <NuxtLink to="/projects" class="text-2xl px-2 py-2 pointer-events-auto" @click="showMenu = false">
                   Projects
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/contact" class="text-2xl font-mono px-2 py-2 pointer-events-auto"
-                  @click="showMenu = false">
+                <NuxtLink to="/contact" class="text-2xl px-2 py-2 pointer-events-auto" @click="showMenu = false">
                   Contact
                 </NuxtLink>
               </li>
             </ul>
           </nav>
+          <div class="mt-8 flex items-start px-6">
+            <NuxtLink to="https://github.com/michaelsynan2025" target="_blank" rel="noopener"
+              class="flex justify-start w-full text-neutral-500 hover:text-neutral-900 text-lg px-2 py-2">
+              <UIcon name="i-mdi-github" class="w-6 h-6" />
+              <span class="sr-only">GitHub</span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </Transition>

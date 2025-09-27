@@ -17,26 +17,45 @@ const mobileDevelopment = ref(null);
 const mobileWriting = ref(null);
 
 const mobileStuff = computed(() => {
-  if (selectedTab.value === 'Design') return 'Design — I craft interfaces and visual systems.';
-  if (selectedTab.value === 'Development') return 'Development — I build web apps and tools.';
-  if (selectedTab.value === 'Writing') return 'Writing — I publish essays and technical notes.';
-  return 'Some stuff';
+  if (selectedTab.value === 'Design') {
+    return {
+      content: 'Design — I craft interfaces and visual systems.',
+      link: { text: 'View Projects', to: '/projects' }
+    }
+  }
+  if (selectedTab.value === 'Development') {
+    return {
+      content: 'Development — I build web apps and tools.',
+      link: { text: 'View Projects', to: '/projects' }
+    }
+  }
+  if (selectedTab.value === 'Writing') {
+    return {
+      content: 'Writing — I publish essays and technical notes.',
+      link: { text: 'View Writing', to: '/posts' }
+    }
+  }
+  return {
+    content: 'Some stuff',
+    link: null
+  }
 });
 </script>
 
 <template>
-  <div class="flex flex-col justify-between items-start min-h-screen max-h-screen p-0 md:p-4 gap-8 md:gap-0 w-full">
+  <div
+    class="flex flex-col justify-between items-start min-h-dvh p-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] md:p-4 gap-8 md:gap-0 w-full">
     <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-screen md:min-h-1/2 p-4 md:p-0">
       <div class="hidden md:block" />
-      <div class="flex flex-col justify-end md:justify-center h-full pt-0  mr-auto md:mr-[unset]">
+      <div class="flex flex-col justify-end md:justify-center h-full pt-0 mr-auto md:mr-[unset]">
         <div class="flex md:hidden h-full items-start justify-start">
-          <div id="some-stuff-content" class="pt-20 w-full max-w-lg ml-0">
+          <div id="some-stuff-content" class="pt-16 w-full max-w-lg ml-0">
             <div v-for="tab in ['Design', 'Development', 'Writing']" :key="tab" class="border-b border-neutral-200">
 
               <div class="w-full">
                 <button class="w-full flex items-center gap-3 py-3 px-2 text-left focus:outline-none"
-                  :class="selectedTab === tab ? 'bg-cream-50' : 'bg-transparent'" @click="selectedTab = tab"
-                  style="position:relative;z-index:1;">
+                  :class="[selectedTab === tab ? 'bg-cream-50' : 'bg-transparent', 'cursor-pointer']"
+                  @click="selectedTab = tab" style="position:relative;z-index:1;">
                   <span class="font-mono text-xs text-neutral-500 w-8">{{ tab === 'Design' ? '01' : tab ===
                     'Development' ? '02' : '03' }}.</span>
                   <span class="flex-1 text-base font-medium text-neutral-800">{{ tab }}</span>
@@ -46,14 +65,24 @@ const mobileStuff = computed(() => {
                     </svg>
                   </span>
                 </button>
-                <div v-if="selectedTab === tab" class="px-2 pb-3 text-sm text-neutral-700 py-4">
-                  {{ mobileStuff }}
+                <div v-if="selectedTab === tab" class="px-2 pb-3 text-sm text-neutral-700 py-4 flex flex-col">
+                  <div class="flex flex-col gap-2 items-start">
+                    <span class="text-md text-neutral-700">{{ mobileStuff.content }}</span>
+                    <template v-if="mobileStuff.link">
+                      <NuxtLink :to="mobileStuff.link.to"
+                        class="inline-flex items-center text-xs text-neutral-700 hover:text-neutral-900 pt-1 ml-auto">
+                        {{ mobileStuff.link.text }}
+                        <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                      </NuxtLink>
+                    </template>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4" />
+        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4"
+          style="border-radius: 12px;" />
         <h1
           class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col mb-4">
           <span>Building Nice
