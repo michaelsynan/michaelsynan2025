@@ -1,4 +1,7 @@
-<script setup lang="ts">
+<script
+  setup
+  lang="ts"
+>
 import { ref, computed } from 'vue';
 import HomeDesign from '../Home/Design.vue';
 import HomeDevelopment from '../Home/Development.vue';
@@ -44,47 +47,103 @@ const mobileStuff = computed(() => {
 
 <template>
   <div
-    class="flex flex-col justify-between items-start min-h-dvh p-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] md:p-4 gap-8 md:gap-0 w-full">
+    class="flex flex-col justify-between items-start min-h-dvh p-[env(safe-area-inset-top)] pb-[env(safe-area-inset-bottom)] md:p-4 gap-8 md:gap-0 w-full"
+  >
     <div class="grid grid-cols-1 md:grid-cols-2 w-full flex-1 min-h-screen md:min-h-1/2 p-4 md:p-0">
       <div class="hidden md:block" />
       <div class="flex flex-col justify-end md:justify-center h-full pt-0 mr-auto md:mr-[unset]">
         <div class="flex md:hidden h-full items-start justify-start">
-          <div id="some-stuff-content" class="pt-16 w-full max-w-lg ml-0">
-            <div v-for="tab in ['Design', 'Development', 'Writing']" :key="tab" class="border-b border-neutral-200">
-
-              <div class="w-full">
-                <button class="w-full flex items-center gap-3 py-3 px-2 text-left focus:outline-none"
-                  :class="[selectedTab === tab ? 'bg-cream-50' : 'bg-transparent', 'cursor-pointer']"
-                  @click="selectedTab = tab" style="position:relative;z-index:1;">
-                  <span class="font-mono text-xs text-neutral-500 w-8">{{ tab === 'Design' ? '01' : tab ===
-                    'Development' ? '02' : '03' }}.</span>
-                  <span class="flex-1 text-base font-medium text-neutral-800">{{ tab }}</span>
-                  <span class="flex items-center text-xs text-neutral-500">
-                    <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                </button>
-                <div v-if="selectedTab === tab" class="px-2 pb-3 text-sm text-neutral-700 py-4 flex flex-col">
-                  <div class="flex flex-col gap-2 items-start">
-                    <span class="text-md text-neutral-700">{{ mobileStuff.content }}</span>
-                    <template v-if="mobileStuff.link">
-                      <NuxtLink :to="mobileStuff.link.to"
-                        class="inline-flex items-center text-xs text-neutral-700 hover:text-neutral-900 pt-1 ml-auto">
-                        {{ mobileStuff.link.text }}
-                        <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
-                      </NuxtLink>
-                    </template>
-                  </div>
+          <div
+            id="mobile-grid-content"
+            class="pt-16 w-full max-w-lg ml-0"
+          >
+            <div class="grid grid-cols-2 gap-4">
+              <!-- Design Box -->
+              <NuxtLink
+                to="/projects"
+                class="border border-border/50 p-4 bg-elevated/30 hover:bg-elevated/50 transition-colors flex flex-col h-full"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-xs text-muted-foreground">01.</span>
+                  <span class="text-base font-medium text-foreground">Design</span>
                 </div>
-              </div>
+                <p class="text-sm text-muted-foreground mb-3 flex-grow">I craft interfaces and visual systems.</p>
+                <div class="inline-flex items-center text-xs mt-auto">
+                  View Projects
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
+                </div>
+              </NuxtLink>
+
+              <!-- Development Box -->
+              <NuxtLink
+                to="/projects"
+                class="border border-border/50 p-4 bg-elevated/30 hover:bg-elevated/50 transition-colors flex flex-col h-full"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-xs text-muted-foreground">02.</span>
+                  <span class="text-base font-medium text-foreground">Development</span>
+                </div>
+                <p class="text-sm text-muted-foreground mb-3 flex-grow">I build web apps and tools.</p>
+                <div class="inline-flex items-center text-xs mt-auto">
+                  View Projects
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
+                </div>
+              </NuxtLink>
+
+              <!-- Writing Box -->
+              <NuxtLink
+                to="/posts"
+                class="border border-border/50 p-4 bg-elevated/30 hover:bg-elevated/50 transition-colors flex flex-col h-full"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-xs text-muted-foreground">03.</span>
+                  <span class="text-base font-medium text-foreground">Writing</span>
+                </div>
+                <p class="text-sm text-muted-foreground mb-3 flex-grow">I publish essays and technical notes.</p>
+                <div class="inline-flex items-center text-xs mt-auto">
+                  View Writing
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
+                </div>
+              </NuxtLink>
+
+              <!-- Contact Box -->
+              <NuxtLink
+                to="/contact"
+                class="border border-border/50 p-4 bg-elevated/30 hover:bg-elevated/50 transition-colors flex flex-col h-full"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="font-mono text-xs text-muted-foreground">04.</span>
+                  <span class="text-base font-medium text-foreground">Contact</span>
+                </div>
+                <p class="text-sm text-muted-foreground mb-3 flex-grow">Get in touch to discuss projects.</p>
+                <div class="inline-flex items-center text-xs mt-auto">
+                  Get In Touch
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
+                </div>
+              </NuxtLink>
             </div>
           </div>
         </div>
-        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover w-1/2 flex md:hidden mb-4"
-          style="border-radius: 12px;" />
+        <NuxtImg
+          src="/michael_synan.webp"
+          alt="Michael Synan"
+          class="object-cover w-1/2 flex md:hidden mb-4"
+        />
         <h1
-          class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col mb-4">
+          class="text-3xl md:text-5xl !ml-0 md:!ml-auto md:mx-auto max-w-md leading-tight text-left flex flex-col mb-4 text-foreground"
+        >
           <span>Building Nice
             Things</span><span>for Human
             Beings.</span>
@@ -95,62 +154,98 @@ const mobileStuff = computed(() => {
     <div class="flex flex-col md:flex-row w-full h-auto md:h-[600px] gap-8 md:gap-10">
       <!-- home image -->
       <div class="flex-1 hidden md:flex h-full overflow-hidden">
-        <NuxtImg src="/michael_synan.webp" alt="Michael Synan" class="object-cover h-full w-full" />
+        <NuxtImg
+          src="/michael_synan.webp"
+          alt="Michael Synan"
+          class="object-cover h-full w-full"
+        />
       </div>
       <!-- right side -->
       <!-- right side desktop -->
       <div class="flex-[3] hidden md:flex flex-col w-full">
-        <div id="home-content-wrapper"
-          class="h-full flex items-start justify-center border-t border-neutral-300 pt py-2 overflow-hidden">
-          <Transition name="fade-tab" mode="out-in">
+        <div
+          id="home-content-wrapper"
+          class="h-full flex items-start justify-center border-t border-neutral-300 pt py-2 overflow-hidden"
+        >
+          <Transition
+            name="fade-tab"
+            mode="out-in"
+          >
             <component :is="selectedTabComponent" />
           </Transition>
         </div>
         <div class="flex flex-row gap-20">
-          <div class="flex-1 flex border-t pt-4 cursor-pointer"
-            :class="selectedTab === 'Design' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-            @click="selectedTab = 'Design'">
+          <div
+            class="flex-1 flex border-t pt-4 cursor-pointer"
+            :class="selectedTab === 'Design' ? 'border-border text-foreground' : 'border-border/50 text-muted-foreground'"
+            @click="selectedTab = 'Design'"
+          >
             <div class="w-full flex items-center gap-2 justify-between">
               <div class="flex items-center gap-2 text-left">
-                <span class="font-mono">01.</span> Design
+                <span class="font-mono text-muted-foreground">01.</span> <span
+                  class="text-base font-medium text-foreground"
+                >Design</span>
               </div>
               <template v-if="selectedTab === 'Design'">
-                <NuxtLink to="/projects"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                <NuxtLink
+                  to="/projects"
+                  class="flex items-center text-xs text-muted-foreground hover:text-foreground rounded transition-colors duration-150"
+                >
                   View Projects
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
                 </NuxtLink>
               </template>
             </div>
           </div>
-          <div class="flex-1 flex border-t pt-4 cursor-pointer"
-            :class="selectedTab === 'Development' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-            @click="selectedTab = 'Development'">
+          <div
+            class="flex-1 flex border-t pt-4 cursor-pointer"
+            :class="selectedTab === 'Development' ? 'border-border text-foreground' : 'border-border/50 text-muted-foreground'"
+            @click="selectedTab = 'Development'"
+          >
             <div class="w-full flex items-center gap-2 justify-between">
               <div class="flex items-center gap-2 text-left">
-                <span class="font-mono">02.</span> Development
+                <span class="font-mono text-muted-foreground">02.</span> <span
+                  class="text-base font-medium text-foreground"
+                >Development</span>
               </div>
               <template v-if="selectedTab === 'Development'">
-                <NuxtLink to="/projects"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                <NuxtLink
+                  to="/projects"
+                  class="flex items-center text-xs text-muted-foreground hover:text-foreground rounded transition-colors duration-150"
+                >
                   View Projects
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
                 </NuxtLink>
               </template>
             </div>
           </div>
-          <div class="flex-1 flex border-t pt-4 cursor-pointer"
-            :class="selectedTab === 'Writing' ? 'border-neutral-800 text-neutral-800' : 'border-neutral-300 text-neutral-400'"
-            @click="selectedTab = 'Writing'">
+          <div
+            class="flex-1 flex border-t pt-4 cursor-pointer"
+            :class="selectedTab === 'Writing' ? 'border-border text-foreground' : 'border-border/50 text-muted-foreground'"
+            @click="selectedTab = 'Writing'"
+          >
             <div class="w-full flex items-center gap-2 justify-between">
               <div class="flex items-center gap-2 text-left">
-                <span class="font-mono">03.</span> Writing
+                <span class="font-mono text-muted-foreground">03.</span> <span
+                  class="text-base font-medium text-foreground"
+                >Writing</span>
               </div>
               <template v-if="selectedTab === 'Writing'">
-                <NuxtLink to="/posts"
-                  class="flex items-center text-xs text-neutral-500 hover:text-neutral-800 rounded transition-colors duration-150">
+                <NuxtLink
+                  to="/posts"
+                  class="flex items-center text-xs text-muted-foreground hover:text-foreground rounded transition-colors duration-150"
+                >
                   View Writing
-                  <UIcon name="i-mdi-arrow-right" class="ml-1 w-4 h-4" />
+                  <UIcon
+                    name="i-mdi-arrow-right"
+                    class="ml-1 w-4 h-4"
+                  />
                 </NuxtLink>
               </template>
             </div>

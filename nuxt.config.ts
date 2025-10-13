@@ -21,4 +21,8 @@ export default defineNuxtConfig({
       colors: ["primary", "secondary", "cream", "darkcream"],
     },
   },
+  site: {
+    url: "https://michaelsynan.com",
+    name: "Michael Synan Design & Development",
+  },
 });
