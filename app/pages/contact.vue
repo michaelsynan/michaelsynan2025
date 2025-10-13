@@ -7,13 +7,13 @@
   <UContainer>
     <div class="pt-32 w-full max-w-2xl mx-auto min-h-screen">
       <h1 class="text-3xl font-semibold mb-8 text-left">Contact</h1>
-      <p class="text-muted-foreground text-left">You can reach me via email at <a
+      <p class="text-muted-foreground text-left ">You can reach me via email at <a
           href="mailto:hello@michaelsynan.com"
-          class="underline hover:text-foreground"
+          class="underline-thick hover:text-foreground "
         >hello [at] michaelsynan [dot] com</a> or on GitHub at <a
           href="https://github.com/michaelsynan"
           target="_blank"
-          class="underline hover:text-foreground"
+          class="underline-thick hover:text-foreground"
         >michaelsynan</a>.</p>
       <div class="flex flex-row gap-4 w-full justify-start pt-4">
         <UIcon

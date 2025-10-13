@@ -20,7 +20,7 @@ const { data: page } = await useAsyncData(route.path, () => {
     <div class="py-8 border-t-stone-500/50 border-t">
       <NuxtLink
         to="/posts"
-        class="inline-flex items-center text-neutral-500 hover:text-neutral-800 text-sm"
+        class="inline-flex items-center text-muted hover:text-default text-sm"
       >
         <UIcon
           name="i-mdi-arrow-left"
