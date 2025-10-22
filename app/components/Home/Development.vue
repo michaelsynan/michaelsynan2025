@@ -8,7 +8,7 @@ const selectedTab = ref('A');
 
 <template>
   <div class="flex flex-row w-full h-full">
-    <div class="flex flex-col items-start justify-between py-8 pr-8 border-r border-neutral-200 h-full max-w-max">
+    <div class="flex flex-col items-start justify-between py-8 pr-8 border-r h-full max-w-max">
       <!-- side menu area -->
       <nav class="flex flex-col gap-6 w-full items-start text-left">
         <button
@@ -35,18 +35,23 @@ const selectedTab = ref('A');
           <span class="font-mono mr-1">C.</span>
           <span class="ml-1 cursor-pointer">WordPress</span>
         </button>
-        <button
-          class="text-sm transition flex items-center cursor-pointer bg-transparent border-none p-0 focus:outline-none"
-          :class="selectedTab === 'D' ? 'text-default' : 'text-muted'"
-          @click="selectedTab = 'D'"
+        <nuxt-link
+          to="https://github.com/michaelsynan"
+          target="_blank"
         >
-          <span class="font-mono mr-1">D.</span>
-          <span class="ml-1 flex-1 cursor-pointer">GitHub</span>
-          <UIcon
-            name="i-mdi-arrow-top-right"
-            class="inline-block ml-1.5 w-4 h-4"
-          />
-        </button>
+          <button
+            class="text-sm transition flex items-center cursor-pointer bg-transparent border-none p-0 focus:outline-none"
+            :class="selectedTab === 'D' ? 'text-default' : 'text-muted'"
+            @click="selectedTab = 'D'"
+          >
+            <span class="font-mono mr-1">D.</span>
+            <span class="ml-1 flex-1 cursor-pointer">GitHub</span>
+            <UIcon
+              name="i-mdi-arrow-top-right"
+              class="inline-block ml-1.5 w-4 h-4"
+            />
+          </button>
+        </nuxt-link>
       </nav>
     </div>
     <div class="flex flex-col items-start justify-start h-full w-full p-8">

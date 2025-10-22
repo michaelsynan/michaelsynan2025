@@ -1,15 +1,18 @@
 <template>
-  <UApp class="!min-h-screen flex flex-col">
-    <div class="flex flex-col flex-1">
+  <UApp class="min-h-screen flex flex-col">
+    <div class="flex-1 flex flex-col">
       <SharedNav />
       <NuxtRouteAnnouncer />
-      <Transition name="fade" mode="out-in">
+      <Transition
+        name="fade"
+        mode="out-in"
+      >
         <NuxtPage />
       </Transition>
-      <template v-if="route.path !== '/' && route.path !== '/about'">
-        <SharedFooter class="bottom-0" />
-      </template>
     </div>
+    <template v-if="route.path !== '/' && route.path !== '/about'">
+      <SharedFooter class="bottom-0" />
+    </template>
   </UApp>
 
 </template>

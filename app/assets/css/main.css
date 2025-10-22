@@ -1,4 +1,21 @@
-@import "tailwindcss";
+/* Remove bullets from markdown task lists */
+.prose ul.contains-task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+.prose ul.contains-task-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+/* Markdown image utility class */
+.markdown-image {
+  margin-top: 2.5rem; /* py-6 */
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(59, 53, 47, 0.5); /* border-stone-900/50 */
+  border-radius: 0.375rem; /* optional: rounded-md for a nice look */
+  display: block;
+}
+@import "tailwindcss" theme(static);
 @import "@nuxt/ui";
 @theme static {
   --color-cream-50: #fffbea;
@@ -24,6 +41,39 @@
   --color-darkcream-800: #635b42;
   --color-darkcream-900: #3b352f;
   --color-darkcream-950: #12100c;
+}
+
+@layer base {
+  .prose ul {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  .prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+    color: var(--text-stone-900);
+  }
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    margin-top: 1.5rem; /* 24px */
+    margin-bottom: 0.75rem; /* 12px */
+  }
+
+  .prose p,
+  .prose ul,
+  .prose ol,
+  .prose img {
+    margin-top: 1rem; /* 16px */
+    margin-bottom: 1rem; /* 16px */
+    color: var(--text-stone-900) !important;
+  }
 }
 
 /* Light mode */
@@ -69,9 +119,13 @@ body {
   }
 }
 
+.prose p a,
+.prose li a,
 .underline-thick {
   position: relative;
 }
+.prose p a::after,
+.prose li a::after,
 .underline-thick::after {
   content: "";
   position: absolute;

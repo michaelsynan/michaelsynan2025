@@ -12,6 +12,7 @@ export const collections = {
       tags: z.array(z.string()).optional(),
       image: z.string().optional(),
       date: z.string(),
+      archived: z.boolean().optional(),
     }),
   }),
 };

@@ -3,10 +3,12 @@
   lang="ts"
 >
 import { ref, onMounted, onBeforeUnmount } from 'vue';
+import { useColorMode } from '@vueuse/core';
 import { useRouter } from 'vue-router';
 const showMenu = ref(false);
 const menuRef = ref(null);
 const router = useRouter();
+const colorMode = useColorMode();
 
 function handleClickOutside(event) {
   if (showMenu.value && menuRef.value && !menuRef.value.contains(event.target)) {
@@ -35,20 +37,51 @@ onBeforeUnmount(() => {
       class="flex flex-row justify-between items-center px-4 py-3 bg-transparent shadow-none fixed w-full top-0 pointer-events-auto"
       style="z-index: 2147483647;"
     >
-      <div class="flex items-center">
+      <div class="flex items-center w-full justify-between">
         <NuxtLink
           to="/"
           style="position: fixed; z-index: 2147483647; top: 12px; left: 16px;"
         >
-          <NuxtImg
-            src="/ms-logo.png"
-            alt="Logo"
-            width="40"
-            height="40"
-            class="block"
-          />
+          <span class="block border">
+            <NuxtImg
+              v-if="colorMode === 'light'"
+              src="/ms-logo-final-2.png"
+              alt="Logo"
+              width="40"
+              height="40"
+            />
+            <NuxtImg
+              v-else
+              src="/ms-logo-dark.png"
+              alt="Logo"
+              width="40"
+              height="40"
+            />
+          </span>
         </NuxtLink>
+        <div class="flex-1 flex justify-center">
+          <button
+            :class="[
+              'flex items-center justify-center w-10 h-10 rounded-full border border-border transition-colors',
+              (colorMode === 'dark' || (showMenu && colorMode === 'dark')) ? 'bg-[#504a2e] hover:bg-[#504a2e]' : 'bg-elevated/80 hover:bg-elevated/100'
+            ]"
+            aria-label="Toggle color mode"
+            @click="colorMode = colorMode === 'dark' ? 'light' : 'dark'"
+          >
+            <UIcon
+              v-if="colorMode === 'dark'"
+              name="i-mdi-weather-sunny"
+              class="w-6 h-6 text-foreground cursor-pointer"
+            />
+            <UIcon
+              v-else
+              name="i-mdi-weather-night"
+              class="w-6 h-6 text-foreground cursor-pointer"
+            />
+          </button>
+        </div>
       </div>
+
       <div
         ref="menuRef"
         class="flex items-center relative"
@@ -111,7 +144,7 @@ onBeforeUnmount(() => {
           <div
             v-if="showMenu"
             class="absolute right-0 md:flex hidden flex-row bg-elevated/50 border border-border/50 z-50 gap-10 transition-all duration-300 slide-menu-content"
-            style="height: 40px; min-width: 400px; top: 0; transform: translateX(calc(-100% - 20px)) scaleX(1); transform-origin: right; pointer-events: auto; z-index: 60;"
+            style="height: 40px; min-width: 400px; top: unset; transform: translateX(-50px) scaleX(1); transform-origin: right; pointer-events: auto; z-index: 60;"
           >
             <NuxtLink
               to="/"

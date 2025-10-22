@@ -165,7 +165,7 @@ const mobileStuff = computed(() => {
       <div class="flex-[3] hidden md:flex flex-col w-full">
         <div
           id="home-content-wrapper"
-          class="h-full flex items-start justify-center border-t border-neutral-300 pt py-2 overflow-hidden"
+          class="h-full flex items-start justify-center border-t pt py-2 overflow-hidden"
         >
           <Transition
             name="fade-tab"
